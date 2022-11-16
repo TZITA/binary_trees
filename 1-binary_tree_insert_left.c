@@ -18,17 +18,15 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	{
 		return (NULL);
 	}
-	node->n = value;
 	if (parent->left != NULL)
 	{
 		tmp = parent->left;
 		parent->left = node;
 		node->left = tmp;
 		tmp->parent = node;
-		tmp->right = NULL;
-		tmp->left = NULL;
 		node->right = NULL;
 		node->parent = parent;
+		node->n = value;
 	}
 	else
 	{
@@ -36,6 +34,7 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 		node->left = NULL;
 		node->right = NULL;
 		node->parent = parent;
+		node->n = value;
 	}
 	return (node);
 }
